@@ -23,12 +23,12 @@
                             </div>
                             <div class="btn-wrapper text-center">
                                 <base-button type="neutral">
-                                    <img slot="icon" src="img/icons/common/github.svg">
+                                    <img slot="icon" src="public/img/icons/common/github.svg">
                                     Github
                                 </base-button>
 
                                 <base-button type="neutral">
-                                    <img slot="icon" src="img/icons/common/google.svg">
+                                    <img slot="icon" src="public/img/icons/common/google.svg">
                                     Google
                                 </base-button>
                             </div>
@@ -40,11 +40,11 @@
                             <form role="form">
                                 <base-input alternative
                                             class="mb-3"
-                                            placeholder="Email"
-                                            addon-left-icon="ni ni-email-83"
-                                            v-model="email">
+                                            placeholder="Full Name"
+                                            addon-left-icon="ni ni-single-02"
+                                            v-model="fullName">
                                 </base-input>
-                                <p>{{email}}</p>
+                                <p>{{fullName}}</p>
                                 <base-input alternative
                                             type="password"
                                             placeholder="Password"
@@ -81,23 +81,15 @@
     </section>
 </template>
 <script>
-import { store } from "../store/store.js";
-
 export default {
   methods: {
-    login() {}
   },
 
-  computed: {
-    userData() {
-      return store.state.userIdentity;
-    }
-  },
   data() {
     return {
       email: "",
       password: "",
-      isSubmitted: false
+      isSubmitted: false,
     };
   }
 };
