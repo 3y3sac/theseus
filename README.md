@@ -10,10 +10,8 @@ Ever felt that you had too many accounts to take care of? Project Theseus aims t
 
 - [x] Add routing for all Vue pages
 - [x] Create basic UI for all pages
-- [ ] Add sign-in page/authentication system
-- [ ] Add backend logic (for appending to database)
+- [ ] Simulate app features
 - [x] Find a template to use
-- [ ] Create data structures for user
 
 #### Build Setup
 
@@ -30,7 +28,3 @@ npm run build
 # lint all JS/Vue component files in `src/`
 npm run lint
 ```
-
----
-
-This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).

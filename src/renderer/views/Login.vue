@@ -44,14 +44,12 @@
                                             addon-left-icon="ni ni-single-02"
                                             v-model="fullName">
                                 </base-input>
-                                <p>{{fullName}}</p>
                                 <base-input alternative
                                             type="password"
                                             placeholder="Password"
                                             addon-left-icon="ni ni-lock-circle-open"
                                             v-model="password">
                                 </base-input>
-                                <p>{{password}}</p>
                                 <base-checkbox>
                                     Remember me
                                 </base-checkbox>
@@ -83,13 +81,16 @@
 <script>
 export default {
   methods: {
+    login() {
+      this.$router.push("profile");
+    }
   },
 
   data() {
     return {
       email: "",
       password: "",
-      isSubmitted: false,
+      isSubmitted: false
     };
   }
 };
