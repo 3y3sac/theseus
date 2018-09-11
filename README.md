@@ -4,7 +4,9 @@
 
 ## A Unified Application to Manage Your Digital Identities
 
-Ever felt that you had too many accounts to take care of? Project Theseus aims to solve this by storing your account logins in one secure app so that you don't have to remember.
+Ever felt that you had too many accounts to take care of? Project Theseus aims to solve this by storing your account logins in one secure app so that you don't have to remember. Theseus will also store personal data locally rather than letting companies and organisations store it on their own webservers.
+
+Check out https://github.com/ForsakenDurian/theseus-server if you want to see an example of what it will be capable of.
 
 ### Progress Checklist
 

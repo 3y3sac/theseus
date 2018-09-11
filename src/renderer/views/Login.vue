@@ -1,5 +1,5 @@
 <template>
-    <section class="section section-shaped section-lg my-0">
+    <section class="section-shaped my-0">
         <div class="shape shape-style-1 bg-gradient-default">
             <span></span>
             <span></span>
@@ -23,12 +23,12 @@
                             </div>
                             <div class="btn-wrapper text-center">
                                 <base-button type="neutral">
-                                    <img slot="icon" src="public/img/icons/common/github.svg">
+                                    <img slot="icon" src="../public/img/icons/common/github.svg">
                                     Github
                                 </base-button>
 
                                 <base-button type="neutral">
-                                    <img slot="icon" src="public/img/icons/common/google.svg">
+                                    <img slot="icon" src="../public/img/icons/common/google.svg">
                                     Google
                                 </base-button>
                             </div>
@@ -88,12 +88,13 @@ export default {
 
   data() {
     return {
-      email: "",
+      fullName: "",
       password: "",
       isSubmitted: false
     };
   }
 };
 </script>
+
 <style>
 </style>
