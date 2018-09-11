@@ -1,6 +1,6 @@
 # Project Theseus
 
-> An experimental application to simplify identities on the web and regain control of our own data
+An experimental application to simplify identities on the web and regain control of personal data
 
 ## A Unified Application to Manage Your Digital Identities
 
