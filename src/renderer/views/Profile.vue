@@ -16,9 +16,7 @@
                 <card shadow class="card-profile mt--300" no-body>
                     <div class="px-4">
                         <div class="row justify-content-center">
-                            <div class="col-lg-3 order-lg-2 card-profile-page">
-                                <img src="../public/img/icons/common/avatar.png" class="rounded-circle">
-                            </div>
+                            <img src="../public/img/icons/common/avatar.png" class="rounded-circle">
                         </div>
                         <div class="text-center mt-5">
                             <h3>John Smith, 27</h3>
@@ -29,7 +27,7 @@
                         <div class="mt-5 py-5 border-top text-center">
                             <div class="row justify-content-center">
                                 <div class="col-lg-9">
-                                     <base-button size="lg" type="primary" @click="startAuthServer()">Manage Accounts</base-button>
+                                     <base-button size="lg" type="primary">Manage Accounts</base-button>
                                 </div>
                             </div>
                         </div>
@@ -37,11 +35,11 @@
                 </card>
             </div>
             <div class="col-md-4">
-                <base-button block type="primary" class=" mb-3" @click="notify = true">
+                <base-button block type="primary" class=" mb-3" @click="popUp(true)">
                 Authentication Request
                 </base-button>
 
-                <modal :show.sync="notify"
+                <modal :show.sync="this.$store.state.notify"
                         gradient="primary"
                         modal-classes="modal-primary modal-dialog-centered">
                 <h6 slot="header" class="modal-title" id="modal-title-notification">Please pay attention to this</h6>
@@ -49,17 +47,17 @@
                 <div class="py-3 text-center">
                     <i class="ni ni-bell-55 ni-3x"></i>
                     <h4 class="heading mt-4">Authentication Request</h4>
-                    <p>Do you want to login to website "127.0.0.1:8080"?</p>
+                    <p>Do you want to login to website "127.0.0.1:3000"?</p>
                 </div>
 
                     <template slot="footer">
                         <base-button type="link"
                              text-color="white"
                              class="ml-auto"
-                             @click="authListener(true)">
+                             @click="authenticator(true)">
                              Yes
                         </base-button>
-                        <base-button type="white" @click="authListener(false)">Nope</base-button>
+                        <base-button type="white" @click="authenticator(false)">Nope</base-button>
                     </template>
                 </modal>
             </div>
@@ -67,8 +65,6 @@
     </div>
 </template>
 <script>
-import http from "http";
-
 export default {
   data() {
     return {
@@ -76,33 +72,19 @@ export default {
     };
   },
   methods: {
-    startAuthServer() {
-      http
-        .createServer((request, response) => {
-          request.on("error", err => {
-            console.error(err);
-            response.statusCode = 400;
-            response.end();
-          });
-          response.on("error", err => {
-            console.error(err);
-          });
-          if (request.method === "POST" && request.url === "/auth") {
-            request.pipe(response);
-          } else {
-            response.statusCode = 401;
-            response.end();
-          }
-        })
-        .listen(8080);
+    popUp(status) {
+      this.$store.commit("AuthPopUp", status);
     },
-    authListener(status) {
-      console.log("authListener works");
-      this.notify = false;
-      if (status === true) {
+    authenticate(status) {
+      this.$store.commit("isAuthenticated", status);
+    },
+    authenticator(status) {
+      this.popUp(false);
+      if (status) {
         alert("Authentication Request Successful!");
+        this.authenticate(true);
       } else {
-        alert("Authentication Request Unsuccessful!");
+        alert("Authentication Request Denied!");
       }
     }
   }

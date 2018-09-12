@@ -1,5 +1,4 @@
 import { app, BrowserWindow } from "electron";
-
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html

@@ -15,7 +15,16 @@ export const store = new Vuex.Store({
       gender: "Apache Attack Helicopter",
       nationality: "Australian",
       occupation: "Graphic Designer"
-    }
+    },
+    notify: false,
+    authenticated: false
   },
-  getters: {}
+  mutations: {
+    AuthPopUp(state, wantedState) {
+      state.notify = wantedState;
+    },
+    isAuthenticated(state, wantedState) {
+      state.authenticated = wantedState;
+    }
+  }
 });
